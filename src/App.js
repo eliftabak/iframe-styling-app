@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Iframe from "./components/Iframe";
+import Controller  from "./components/Controller";
+import InputStorage from './stores/InputStorage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex flex-wrap justify-around my-16">
+     <Controller className="w-1/2" InputStorage={InputStorage} />
+     <Iframe className="w-1/2" InputStorage={InputStorage}/>
     </div>
   );
 }
