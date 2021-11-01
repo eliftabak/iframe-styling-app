@@ -37,7 +37,8 @@ export const ImageUpload = () => {
             <i className="fas fa-circle fa-stack-2x" />
             <i className="fas fa-store fa-stack-1x fa-inverse" />
           </span>
-          <h5 className="text-center text-gray-600 bg-gray-200 h-28 pt-12">Upload your photo ☝</h5>
+          <h5 className="text-center text-gray-600 bg-contain bg-center h-28 pt-12"
+          style={{backgroundImage: "url(https://i.stack.imgur.com/y9DpT.jpg)"}}>Upload your photo ☝</h5>
         </>
         )}
       </label>

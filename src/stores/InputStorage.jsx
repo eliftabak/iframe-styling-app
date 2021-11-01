@@ -1,10 +1,21 @@
-import { extendObservable } from "mobx";
-
+import { observable, action,autorun } from "mobx";
+import { makeObservable } from "mobx";
 class InputStorage {
+  data = [];
+  color= [];
+
   constructor() {
-    extendObservable(this, {
-      data: []
-    })
+    makeObservable(this, {
+      data: observable,
+      color: observable,
+      addInput: action,
+    });
+  }
+
+  addInput(text) {
+    this.data.push({
+      text: text
+    });
   }
 }
 

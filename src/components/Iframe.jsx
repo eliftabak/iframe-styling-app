@@ -1,37 +1,25 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import { observer } from "mobx-react";
-import InputStorage from "../stores/InputStorage";
-import { data } from "autoprefixer";
 
-class Iframe extends Component {
+const Iframe = (props) => {
 
-  createIframe() {
-    const iframe = document.createElement('iframe'); 
-    let data = InputStorage.data;
-
-    document.getElementById('iframeContainer').appendChild(iframe);
-    iframe.setAttribute('id', 'iframe');
-    iframe.classList.add('h-full');
-    iframe.classList.add('bg-gray-200');
-
-    let ifrDoc = iframe.contentDocument;
-    let elem = ifrDoc.createElement("h1");
-    
-    elem.innerText = data;
-    ifrDoc.body.appendChild(elem);
-    console.log(elem.innerText);
+  const addClass = () => {
+    document.getElementById('iframe').classList.add('h-full')
   }
 
+  useEffect(() => {
+    addClass();
+  });
 
-  componentDidMount() {
-    this.createIframe();
-  }
-
-  render() {
     return (
-      <div id="iframeContainer" className="h-auto"></div>
+      <div id="iframeContainer" className="h-auto">
+        <div className="border-8 pb-6 rounded-2xl border-gray-100 h-full z-0 w-62">
+          <h1 className={props.colorStorage}>{props.inputStorage}</h1>
+          <iframe title="iframe" className={props.colorStorage} id="iframe">
+          </iframe>
+        </div>
+      </div>
     )
-  }  
 };
 
 export default observer(Iframe);

@@ -1,49 +1,31 @@
 import React, {Component} from "react";
 import { ImageUpload } from "./ImageUpload";
-// import Input from "./Input";
 
 class Controller extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: ''
-    }
-
-    this.InputStorage = this.props.InputStorage;
-  }
-
-  setData() {
-    let value = this.state.value;
-
-    this.InputStorage.data.push(value);
-
-    console.log(this.InputStorage.data)
-    
-    this.setState({
-      value: ''
-    });
-  }
 
   render() {
     return (
       <div>
         <div className="grid text-left">
           <label htmlFor="input" className="text-gray-600">Input Text</label>
-          {/* <Input InputStorage={InputStorage}/> */}
           <div>
-          <input type="text" 
-          value={this.state.value} 
-          onChange={(e) => { this.setState({value: e.target.value})}} 
-          className="border border-gray-200 outline-none rounded mt-2 mb-8" />
-          <button onClick={() => this.setData() }>Add Text to iFrame</button>
+            <input type="text" 
+            value={this.props.inputStorage} 
+            onChange={(e) => this.props.onInputChange(e.target.value)} 
+            className="border border-gray-200 outline-none rounded mt-2 mb-8" />
           </div>
-          <select className="text-purple-500 border border-gray-200 rounded py-1" name="select" id="select">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+          <label htmlFor="select" className="text-gray-600">Please Choose a Background Color</label>
+          <select 
+          className="text-purple-500 outline-none border border-gray-200 rounded py-1" 
+          name="select" 
+          onChange={(e) => this.props.onColorChange(e.target.value)} 
+          id="selectOptionValue">
+            <option defaultValue value="bg-gray-300">Default: Gray</option>
+            <option defaultValue value="bg-white">White</option>
+            <option value="bg-red-400">Light Red</option>
+            <option value="bg-yellow-500">Orange</option>
+            <option value="bg-green-300">Light Green</option>
+            <option value="bg-blue-500">Blue</option>
           </select>
           <input type="checkbox" name="toggle" className="hidden" />
           <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in my-8">
