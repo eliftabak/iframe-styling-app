@@ -13,7 +13,7 @@ const Iframe = (props) => {
 
     return (
       <div id="iframeContainer" className="h-auto">
-        <div className="border-8 pb-6 rounded-2xl border-gray-100 h-full z-0 w-62">
+        <div className="border-8 rounded-2xl border-gray-100 h-full z-0 w-62">
           <h1 className={props.colorStorage}>{props.inputStorage}</h1>
           <iframe title="iframe" className={props.colorStorage} id="iframe">
           </iframe>
